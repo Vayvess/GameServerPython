@@ -95,7 +95,9 @@ class Server:
             self.handle_tcp()
 
     def stop(self):
-        pass
+        self.selector.close()
+        self.tcp_sock.close()
+        self.db.close()
 
 
 if __name__ == '__main__':
